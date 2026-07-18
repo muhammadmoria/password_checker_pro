@@ -1,0 +1,515 @@
+/* ============================================
+   Password Checker AI Pro - Premium UI Styles
+   Enterprise-grade Cybersecurity Dashboard
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+    /* Neon Palette */
+    --neon-blue: #00d4ff;
+    --neon-purple: #bd00ff;
+    --neon-green: #10b981;
+    --neon-red: #ef4444;
+    --neon-orange: #f59e0b;
+    --neon-yellow: #eab308;
+    
+    /* Backgrounds */
+    --bg-dark: #050810;
+    --bg-panel: #0a0e1a;
+    --bg-card: rgba(255, 255, 255, 0.025);
+    --bg-card-hover: rgba(255, 255, 255, 0.05);
+    
+    /* Glass Effects */
+    --border-glass: rgba(255, 255, 255, 0.06);
+    --border-active: rgba(0, 212, 255, 0.4);
+    --glass-blur: 16px;
+    
+    /* Typography */
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    
+    /* Shadows & Glows */
+    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+    --glow-blue: 0 0 20px rgba(0, 212, 255, 0.25);
+    --glow-purple: 0 0 20px rgba(189, 0, 255, 0.25);
+}
+/* ============================================
+   Sidebar Nav Labels
+   ============================================ */
+
+.nav-section-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 0.5rem 1rem 0.25rem 1rem;
+    margin-top: 0.5rem;
+}
+
+.nav-section-label:first-of-type {
+    margin-top: 0;
+}
+
+/* Pulse animation for status dot */
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.2); }
+}
+/* ============================================
+   Global Resets & Base
+   ============================================ */
+
+* {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+html, body {
+    scroll-behavior: smooth;
+}
+
+/* Animated Cyber Background */
+.stApp {
+    background: radial-gradient(circle at 0% 0%, rgba(189, 0, 255, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 100% 100%, rgba(0, 212, 255, 0.08) 0%, transparent 40%),
+                linear-gradient(135deg, #050810 0%, #0a0e1a 50%, #0d1117 100%) !important;
+    background-attachment: fixed !important;
+    color: var(--text-primary) !important;
+}
+
+::selection {
+    background: rgba(0, 212, 255, 0.3);
+    color: #fff;
+}
+
+/* Remove Streamlit Branding */
+#MainMenu, footer, header[data-testid="stHeader"] {
+    visibility: hidden;
+}
+
+.stApp > div {
+    position: relative;
+    z-index: 1;
+}
+
+/* ============================================
+   Typography & Markdown
+   ============================================ */
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-primary) !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.5px;
+}
+
+.stMarkdown p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+.stMarkdown code {
+    font-family: 'JetBrains Mono', monospace;
+    background: rgba(0, 212, 255, 0.1);
+    color: var(--neon-blue);
+    padding: 0.2rem 0.5rem;
+    border-radius: 6px;
+    font-size: 0.85em;
+    border: 1px solid rgba(0, 212, 255, 0.15);
+}
+
+/* ============================================
+   Premium Glass Cards
+   ============================================ */
+
+.glass-card {
+    background: var(--bg-card);
+    backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--border-glass);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Subtle gradient top border */
+.glass-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.5), transparent);
+    opacity: 0.5;
+    transition: opacity 0.4s ease;
+}
+
+.glass-card:hover {
+    background: var(--bg-card-hover);
+    border-color: rgba(0, 212, 255, 0.2);
+    box-shadow: var(--shadow-lg), var(--glow-blue);
+    transform: translateY(-2px);
+}
+
+.glass-card:hover::before {
+    opacity: 1;
+}
+
+/* ============================================
+   Metric Cards (Data Points)
+   ============================================ */
+
+.metric-card {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+    border: 1px solid var(--border-glass);
+    border-radius: 16px;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.metric-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.metric-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(0, 212, 255, 0.3);
+    box-shadow: var(--shadow-md);
+}
+
+.metric-card:hover::after {
+    opacity: 1;
+}
+
+.metric-icon {
+    font-size: 2rem;
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    border: 1px solid var(--border-glass);
+}
+
+.metric-label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+.metric-value {
+    font-size: 1.75rem;
+    font-weight: 800;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: -1px;
+}
+
+/* ============================================
+   Sidebar (Command Center)
+   ============================================ */
+
+section[data-testid="stSidebar"] {
+    background: linear-gradient(180deg, rgba(10, 14, 26, 0.95), rgba(5, 8, 16, 0.98)) !important;
+    backdrop-filter: blur(24px) !important;
+    border-right: 1px solid rgba(0, 212, 255, 0.1) !important;
+}
+
+section[data-testid="stSidebar"] > div {
+    padding-top: 2rem !important;
+}
+
+.sidebar-header {
+    text-align: center;
+    padding: 1.5rem 0 2rem 0;
+    border-bottom: 1px solid var(--border-glass);
+    margin-bottom: 1.5rem;
+}
+
+.sidebar-logo {
+    font-size: 3rem;
+    margin-bottom: 0.75rem;
+    filter: drop-shadow(0 0 15px rgba(0, 212, 255, 0.6));
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+}
+
+.sidebar-title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.sidebar-subtitle {
+    font-size: 0.65rem;
+    color: var(--neon-purple);
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-top: 5px;
+}
+
+/* Premium Active State */
+.sidebar-nav button {
+    background: rgba(255, 255, 255, 0.02) !important;
+    border: 1px solid transparent !important;
+    border-left: 3px solid transparent !important;
+    color: var(--text-secondary) !important;
+    padding: 0.75rem 1rem !important;
+    border-radius: 8px !important;
+    font-size: 0.9rem !important;
+    font-weight: 500 !important;
+    text-align: left !important;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    margin-bottom: 4px !important;
+}
+
+.sidebar-nav button:hover {
+    background: rgba(0, 212, 255, 0.05) !important;
+    border-left-color: rgba(0, 212, 255, 0.5) !important;
+    color: var(--neon-blue) !important;
+    transform: translateX(4px) !important;
+}
+
+.sidebar-user {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    border: 1px solid var(--border-glass);
+}
+
+.user-avatar {
+    font-size: 1.5rem;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(189, 0, 255, 0.2));
+    border-radius: 50%;
+    border: 1px solid rgba(0, 212, 255, 0.3);
+}
+
+/* ============================================
+   Buttons & Actions
+   ============================================ */
+
+.stButton > button, .stFormSubmitButton > button {
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(189, 0, 255, 0.1)) !important;
+    border: 1px solid rgba(0, 212, 255, 0.3) !important;
+    color: var(--neon-blue) !important;
+    border-radius: 10px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.5px;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Shimmer effect on hover */
+.stButton > button::before, .stFormSubmitButton > button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.stButton > button:hover, .stFormSubmitButton > button:hover {
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(189, 0, 255, 0.2)) !important;
+    border-color: var(--neon-blue) !important;
+    box-shadow: var(--glow-blue) !important;
+    transform: translateY(-2px) !important;
+}
+
+.stButton > button:hover::before, .stFormSubmitButton > button:hover::before {
+    left: 100%;
+}
+
+.stButton > button:active, .stFormSubmitButton > button:active {
+    transform: translateY(0) scale(0.98) !important;
+}
+
+.stDownloadButton > button {
+    background: rgba(189, 0, 255, 0.1) !important;
+    border: 1px solid rgba(189, 0, 255, 0.3) !important;
+    color: var(--neon-purple) !important;
+}
+
+.stDownloadButton > button:hover {
+    background: rgba(189, 0, 255, 0.2) !important;
+    border-color: var(--neon-purple) !important;
+    box-shadow: var(--glow-purple) !important;
+}
+
+/* ============================================
+   Inputs & Forms
+   ============================================ */
+
+.stTextInput > div > div > input,
+.stTextArea > div > div > textarea {
+    background: rgba(0, 0, 0, 0.2) !important;
+    border: 1px solid var(--border-glass) !important;
+    border-radius: 10px !important;
+    color: var(--text-primary) !important;
+    padding: 0.75rem 1rem !important;
+    font-family: 'JetBrains Mono', monospace !important;
+    transition: all 0.3s ease !important;
+}
+
+.stTextInput > div > div > input:focus,
+.stTextArea > div > div > textarea:focus {
+    border-color: var(--neon-blue) !important;
+    box-shadow: 0 0 0 4px rgba(0, 212, 255, 0.1), var(--glow-blue) !important;
+    background: rgba(0, 0, 0, 0.3) !important;
+}
+
+.stTextInput > div > div > input::placeholder {
+    color: var(--text-muted) !important;
+    font-style: italic;
+}
+
+/* ============================================
+   Tabs (Cyber Panels)
+   ============================================ */
+
+.stTabs [data-baseweb="tab-list"] {
+    gap: 0.5rem;
+    background: transparent;
+    border-bottom: 1px solid var(--border-glass);
+}
+
+.stTabs [data-baseweb="tab"] {
+    background: transparent !important;
+    border: 1px solid transparent !important;
+    border-radius: 8px 8px 0 0 !important;
+    padding: 0.5rem 1.5rem !important;
+    color: var(--text-secondary) !important;
+    font-weight: 600 !important;
+}
+
+.stTabs [aria-selected="true"] {
+    background: rgba(0, 212, 255, 0.05) !important;
+    color: var(--neon-blue) !important;
+}
+
+/* Animated glowing underline for active tab */
+.stTabs [data-baseweb="tab-highlight"] {
+    height: 2px !important;
+    background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple)) !important;
+    box-shadow: 0 0 10px var(--neon-blue) !important;
+}
+
+/* ============================================
+   Expanders
+   ============================================ */
+
+.streamlit-expanderHeader {
+    background: var(--bg-card) !important;
+    border-radius: 10px !important;
+    font-weight: 600 !important;
+    color: var(--text-primary) !important;
+    transition: all 0.3s ease !important;
+}
+
+.streamlit-expanderHeader:hover {
+    background: var(--bg-card-hover) !important;
+}
+
+/* ============================================
+   Custom Scrollbar
+   ============================================ */
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--neon-blue), var(--neon-purple));
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, var(--neon-purple), var(--neon-blue));
+}
+
+/* ============================================
+   Utilities & Alerts
+   ============================================ */
+
+.info-banner {
+    padding: 1rem 1.25rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    backdrop-filter: blur(10px);
+    font-weight: 500;
+    border-left: 4px solid;
+    animation: slideIn 0.4s ease-out;
+}
+
+.stAlert {
+    border-radius: 12px !important;
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-glass) !important;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.glass-card, .metric-card {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Auth Page Premium Styling */
+.auth-card {
+    border: 1px solid rgba(0, 212, 255, 0.2) !important;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 212, 255, 0.1) !important;
+}

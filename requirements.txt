@@ -1,0 +1,14 @@
+streamlit>=1.38.0
+SQLAlchemy>=2.0.0
+plotly>=5.18.0
+pandas>=2.1.0
+numpy>=1.26.0
+pydantic>=2.5.0
+requests>=2.31.0
+cryptography>=42.0.0
+bcrypt>=4.1.0
+zxcvbn>=4.4.28
+fpdf2>=2.7.9
+pytest>=7.4.0
+pytest-cov>=4.1.0
+python-dotenv>=1.0.0
